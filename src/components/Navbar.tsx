@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
@@ -25,19 +24,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
-const toggleDrawer =
-(open: boolean) =>
-(event: React.KeyboardEvent | React.MouseEvent) => {
-  if (
-    event.type === 'keydown' &&
-    ((event as React.KeyboardEvent).key === 'Tab' ||
-      (event as React.KeyboardEvent).key === 'Shift')
-  ) {
-    return;
-  }
 
-  setState({ ...state, ["left"]: open });
-};
 
 export default function Navbar() {
   const [auth, setAuth] = React.useState(true);

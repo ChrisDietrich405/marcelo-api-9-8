@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ReactLoading from 'react-loading';
 
-import BasicSelect from "../components/Dropdown";
+import BasicSelect from "../components/BasicSelect";
 interface TreasuryYieldDataProps {
   date: string;
   value: string;
