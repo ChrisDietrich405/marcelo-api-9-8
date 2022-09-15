@@ -9,45 +9,57 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import CompanyOverview from "../pages/CompanyOverview";
 import BusinessIcon from "@mui/icons-material/Business";
+import LocalAtmIcon from "@mui/icons-material/LocalAtm";
+import InsightsIcon from "@mui/icons-material/Insights";
 import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div>
       {" "}
       <List>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <Link to="/company-overview" style={{color: "black"}}>
+      
+        <ListItem
+          disablePadding
+          button
+          component={Link}
+          to="/company-overview"
+          style={{ color: "black" }}
+        >
+            <ListItemButton>
               <ListItemIcon>
                 <BusinessIcon />
               </ListItemIcon>
               <ListItemText primary="Company Overview" />
-            </Link>
+            </ListItemButton>
+        </ListItem>
+        <ListItem
+          disablePadding
+          button
+          component={Link}
+          to="/treasury-yield"
+          style={{ color: "black" }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <LocalAtmIcon />
+            </ListItemIcon>
+            <ListItemText primary="Treasury Yield" />
           </ListItemButton>
         </ListItem>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem
+          disablePadding
+          button
+          component={Link}
+          to="/inflation"
+          style={{ color: "black" }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <InsightsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Inflation" />
+          </ListItemButton>
+        </ListItem>
       </List>
     </div>
   );

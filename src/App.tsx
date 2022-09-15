@@ -26,8 +26,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/treasury-yield" element={<TreasuryYield />} />
             <Route path="/inflation" element={<Inflation />} />
-            <Route path="/company-overview" element={<CompanyOverview />} />
-            
+            <Route path="/company-overview" element={<CompanyOverview />} />         
           </Routes>
         </main>
       </div>
