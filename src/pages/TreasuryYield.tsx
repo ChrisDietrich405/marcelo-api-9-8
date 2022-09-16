@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ReactLoading from 'react-loading';
+import ReactLoading from "react-loading";
 
 import BasicSelect from "../components/BasicSelect";
 interface TreasuryYieldDataProps {
@@ -36,11 +36,11 @@ const TreasuryYield = () => {
   );
   const [selectedInterval, setSelectedInterval] = useState<string>("");
   const [selectedMaturity, setSelectedMaturity] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchTreasuryInfo = async () => {
-    if ((selectedInterval && selectedMaturity)) {
-      setLoading(true)
+    if (selectedInterval && selectedMaturity) {
+      setLoading(true);
       const response = await axios.get(
         `https://www.alphavantage.co/query?function=TREASURY_YIELD&interval=${selectedInterval}&maturity=${selectedMaturity}&apikey=${
           import.meta.env.VITE_ALPHAVANTAGE_KEY
@@ -49,7 +49,7 @@ const TreasuryYield = () => {
 
       console.log(response);
       setTreasuryData(response.data);
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -59,7 +59,9 @@ const TreasuryYield = () => {
 
   return (
     <div>
-      {loading && <ReactLoading type="bars" color="blue" height={667} width={375} />}
+      {loading && (
+        <ReactLoading type="bars" color="blue" height={667} width={375} />
+      )}
       <BasicSelect
         question="What is your time frame"
         label="time frame"

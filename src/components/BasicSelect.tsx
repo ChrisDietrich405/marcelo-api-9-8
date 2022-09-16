@@ -9,7 +9,6 @@ interface Option {
   value: string;
   text: string;
 }
-
 interface BasicSelectProps {
   question: string;
   options: Option[];
