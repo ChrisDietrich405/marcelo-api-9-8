@@ -3,17 +3,9 @@ import axios from "axios";
 import ReactLoading from "react-loading";
 
 import BasicSelect from "../components/BasicSelect";
-interface TreasuryYieldDataProps {
-  date: string;
-  value: string;
-}
+import Chart from "../components/Chart";
 
-interface TreasuryYieldProps {
-  data: TreasuryYieldDataProps[];
-  interval: string;
-  name: string;
-  unit: string;
-}
+import { TreasuryYieldProps } from "../model";
 
 const intervals = [
   { value: "daily", text: "Daily" },
@@ -46,8 +38,6 @@ const TreasuryYield = () => {
           import.meta.env.VITE_ALPHAVANTAGE_KEY
         }`
       );
-
-      console.log(response);
       setTreasuryData(response.data);
       setLoading(false);
     }
@@ -59,6 +49,8 @@ const TreasuryYield = () => {
 
   return (
     <div>
+      {treasuryData && <Chart data={treasuryData.data} />}
+
       {loading && (
         <ReactLoading type="bars" color="blue" height={667} width={375} />
       )}
