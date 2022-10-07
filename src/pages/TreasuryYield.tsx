@@ -3,7 +3,8 @@ import axios from "axios";
 import ReactLoading from "react-loading";
 
 import BasicSelect from "../components/BasicSelect";
-import Chart from "../components/Chart";
+import TreasuryYieldChart from "../components/TreasuryYieldChart";
+import TreasuryYieldTable from "../components/TreasuryYieldTable";
 
 import { TreasuryYieldProps } from "../model";
 
@@ -49,7 +50,7 @@ const TreasuryYield = () => {
 
   return (
     <div>
-      {treasuryData && <Chart data={treasuryData.data} />}
+      {treasuryData && <TreasuryYieldChart data={treasuryData.data} />}
 
       {loading && (
         <ReactLoading type="bars" color="blue" height={667} width={375} />
@@ -67,15 +68,8 @@ const TreasuryYield = () => {
         setSelectedValue={setSelectedMaturity}
       />
       <h2>{treasuryData?.name}</h2>
-      <p>{treasuryData?.interval}</p>
-      <p>{treasuryData?.unit}</p>
-      {treasuryData?.data.map((item) => {
-        return (
-          <p>
-            {item.date}-{item.value}
-          </p>
-        );
-      })}
+
+      {treasuryData && <TreasuryYieldTable treasuryData={treasuryData.data} />}
     </div>
   );
 };

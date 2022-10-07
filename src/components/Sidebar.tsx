@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
@@ -12,7 +13,9 @@ import BusinessIcon from "@mui/icons-material/Business";
 import LocalAtmIcon from "@mui/icons-material/LocalAtm";
 import InsightsIcon from "@mui/icons-material/Insights";
 import { Link } from "react-router-dom";
-const Sidebar = () => {
+
+const Sidebar = ({state, dispatch}) => {
+
   return (
     <div>
       {" "}
@@ -58,6 +61,19 @@ const Sidebar = () => {
               <InsightsIcon />
             </ListItemIcon>
             <ListItemText primary="Inflation" />
+          </ListItemButton>
+        </ListItem>
+        <ListItem
+          onClick={() => dispatch({type: "logout"})}
+          disablePadding
+          button
+          style={{ color: "black" }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <InsightsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Log out" />
           </ListItemButton>
         </ListItem>
       </List>

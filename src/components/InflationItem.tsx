@@ -13,11 +13,9 @@ const InflationItem = ({ inflationData }: InflationItemProps) => {
     <div>
        
       <h2>{inflationData.name}</h2>
-      <p>{inflationData.unit}</p>
-      {inflationData.interval}
-      {inflationData.data.map((item) => {
+      {/* {inflationData.data.map((item) => {
         return <p>{item.date}</p>;
-      })}
+      })} */}
     </div>
   );
 };

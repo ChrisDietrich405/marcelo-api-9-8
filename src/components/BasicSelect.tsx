@@ -43,8 +43,8 @@ export default function BasicSelect({
           label={label}
           onChange={handleChange}
         >
-          {options.map((option) => {
-            return <MenuItem value={option.value}>{option.text}</MenuItem>;
+          {options.map((option, index) => {
+            return <MenuItem key={index} value={option.value}>{option.text}</MenuItem>;
           })}
         </Select>
       </FormControl>

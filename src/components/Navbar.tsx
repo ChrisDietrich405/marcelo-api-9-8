@@ -24,7 +24,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 
-export default function Navbar() {
+export default function Navbar({state, dispatch}) {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -50,7 +50,10 @@ export default function Navbar() {
           <Link to="/inflation">About Us</Link>
         </Typography>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <Link to="/treasury-yield">Contact Us</Link>
+          <Link to="/contact">Contact Us</Link>
+        </Typography>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Link onClick={() => dispatch({type: "logout"})} to="/login">{state.isLoggedIn ? "Log out" : "Log in"}</Link>
         </Typography>
         {auth && (
           <div>
